@@ -4,7 +4,6 @@ import Autocomplete from './Autocomplete';
 
 class App extends Component {
   state = {
-    update: false,
     keyword: '',
     results: [],
   };
@@ -17,13 +16,11 @@ class App extends Component {
           `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${inputText}&apikey=GUO9GOF82DVL1REY`
         );
         data = await api_url.json();
-        console.log(data);
-        this.setState({ results: data.bestMatches });
-
-        return data;
       } catch (err) {
         console.log(err.message);
       }
+
+      this.setState({ results: data.bestMatches });
     } else this.setState({ results: [] });
   };
 
