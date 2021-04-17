@@ -7,19 +7,12 @@ export default class Autocomplete extends Component {
 
     const updateText = (text) => {
       updateField('keyword', text, false);
-      updateField('results', []);
+      updateField('results', [], false);
     };
 
     const renderResults = results.map((element, index) => {
       const name = Object.values(element)[1];
-      return (
-        <SearchDetails
-          key={index}
-          key={index}
-          updateText={updateText}
-          name={name}
-        />
-      );
+      return <SearchDetails key={index} updateText={updateText} name={name} />;
     });
 
     return (
@@ -29,6 +22,7 @@ export default class Autocomplete extends Component {
           type='text'
           placeholder={placeholder}
           value={keyword}
+          updateText={updateText}
           onChange={(e) => updateField('keyword', e.target.value)}
         />
         {results.length > 0 ? (

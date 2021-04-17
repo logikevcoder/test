@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SearchDetails = ({ name }) => {
+const SearchDetails = ({ name, updateText }) => {
   return (
-    <div>
+    <div onClick={() => updateText(name)}>
       <div>
         <p>{name}</p>
       </div>
