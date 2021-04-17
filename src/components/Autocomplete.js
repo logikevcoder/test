@@ -16,7 +16,6 @@ export default class Autocomplete extends Component {
           type='text'
           placeholder={placeholder}
           value={keyword}
-          updateText={updateText}
           onChange={(e) => updateField('keyword', e.target.value)}
         />
       </>
